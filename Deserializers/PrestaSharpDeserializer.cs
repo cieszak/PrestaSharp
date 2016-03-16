@@ -30,7 +30,9 @@ namespace Bukimedia.PrestaSharp.Deserializers
             if (string.IsNullOrEmpty(response.Content))
                 return default(T);
 
-            var doc = XDocument.Parse(response.Content);
+            var content = response.Content.Replace("\x01", "");
+
+            var doc = XDocument.Parse(content);
             var root = doc.Root;
             if (RootElement.HasValue() && doc.Root != null)
             {
