@@ -247,7 +247,7 @@ namespace Bukimedia.PrestaSharp.Factories
             }
             var request = new RestRequest();
             request.RootElement = "prestashop";
-            request.Resource = Resource;
+            request.Resource = Resource + "/" + Id;
             request.AddParameter("id", Id, ParameterType.UrlSegment);
             request.Method = Method.PUT;
             request.RequestFormat = DataFormat.Xml;
