@@ -133,5 +133,17 @@ namespace Bukimedia.PrestaSharp.Entities
             Language.Value = Functions.GetPrestaShopName(Language.Value);
             this.name.Add(Language);
         }
+
+        public void AddDescription(Entities.AuxEntities.language Language)
+        {
+            Language.Value = Functions.GetPrestaShopName(Language.Value);
+            this.description.Add(Language);
+        }
+
+        public void AddDescriptionShort(Entities.AuxEntities.language Language)
+        {
+            Language.Value = Functions.GetPrestaShopName(Language.Value);
+            this.description_short.Add(Language);
+        }
     }
 }
