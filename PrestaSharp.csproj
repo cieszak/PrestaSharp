@@ -53,6 +53,9 @@
   <ItemGroup>
     <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -78,6 +81,8 @@
     <Compile Include="Entities\AuxEntities\AssociationsCombination.cs" />
     <Compile Include="Entities\AuxEntities\address.cs" />
     <Compile Include="Entities\AuxEntities\AssociationsCustomer.cs" />
+    <Compile Include="Entities\AuxEntities\AssociationsWarehouse.cs" />
+    <Compile Include="Entities\AuxEntities\carrier.cs" />
     <Compile Include="Entities\AuxEntities\category.cs" />
     <Compile Include="Entities\AuxEntities\combinations.cs" />
     <Compile Include="Entities\AuxEntities\AssociationsProductOption.cs" />
@@ -85,7 +90,10 @@
     <Compile Include="Entities\AuxEntities\AssociationsCart.cs" />
     <Compile Include="Entities\AuxEntities\country.cs" />
     <Compile Include="Entities\AuxEntities\customer_message.cs" />
+    <Compile Include="Entities\AuxEntities\shop.cs" />
+    <Compile Include="Entities\AuxEntities\specific_price_rule.cs" />
     <Compile Include="Entities\AuxEntities\specific_price.cs" />
+    <Compile Include="Entities\AuxEntities\stock.cs" />
     <Compile Include="Entities\AuxEntities\supplier.cs" />
     <Compile Include="Entities\AuxEntities\product_feature_value.cs" />
     <Compile Include="Entities\AuxEntities\group.cs" />
@@ -103,19 +111,29 @@
     <Compile Include="Entities\FilterEntities\customer_message.cs" />
     <Compile Include="Entities\FilterEntities\order_carrier.cs" />
     <Compile Include="Entities\FilterEntities\order_cart_rule.cs" />
+    <Compile Include="Entities\FilterEntities\order_detail.cs" />
     <Compile Include="Entities\FilterEntities\order_history.cs" />
     <Compile Include="Entities\FilterEntities\order_payment.cs" />
+    <Compile Include="Entities\FilterEntities\product_supplier.cs" />
+    <Compile Include="Entities\FilterEntities\specific_price_rule.cs" />
     <Compile Include="Entities\FilterEntities\tax.cs" />
     <Compile Include="Entities\FilterEntities\tax_rule.cs" />
+    <Compile Include="Entities\FilterEntities\warehouse_product_location.cs" />
+    <Compile Include="Entities\imagetype.cs" />
     <Compile Include="Entities\order_carrier.cs" />
     <Compile Include="Entities\FilterEntities\state.cs" />
     <Compile Include="Entities\order_cart_rule.cs" />
+    <Compile Include="Entities\order_detail.cs" />
     <Compile Include="Entities\order_history.cs" />
     <Compile Include="Entities\order_payment.cs" />
+    <Compile Include="Entities\product_supplier.cs" />
+    <Compile Include="Entities\specific_price_rule.cs" />
     <Compile Include="Entities\state.cs" />
     <Compile Include="Entities\FilterEntities\zone.cs" />
     <Compile Include="Entities\tax.cs" />
     <Compile Include="Entities\tax_rule.cs" />
+    <Compile Include="Entities\warehouse.cs" />
+    <Compile Include="Entities\warehouse_product_location.cs" />
     <Compile Include="Entities\zone.cs" />
     <Compile Include="Entities\FilterEntities\guest.cs" />
     <Compile Include="Entities\guest.cs" />
@@ -184,11 +202,16 @@
     <Compile Include="Factories\CustomerMessageFactory.cs" />
     <Compile Include="Factories\OrderCarrierFactory.cs" />
     <Compile Include="Factories\OrderCartRuleFactory.cs" />
+    <Compile Include="Factories\OrderDetailFactory.cs" />
     <Compile Include="Factories\OrderHistoryFactory.cs" />
     <Compile Include="Factories\OrderPaymentFactory.cs" />
+    <Compile Include="Factories\ProductSupplierFactory.cs" />
+    <Compile Include="Factories\SpecificPriceRuleFactory.cs" />
     <Compile Include="Factories\StateFactory.cs" />
     <Compile Include="Factories\TaxFactory.cs" />
     <Compile Include="Factories\TaxRuleFactory.cs" />
+    <Compile Include="Factories\WarehouseFactory.cs" />
+    <Compile Include="Factories\WarehouseProductLocationFactory.cs" />
     <Compile Include="Factories\ZoneFactory.cs" />
     <Compile Include="Factories\GuestFactory.cs" />
     <Compile Include="Factories\TaxRuleGroupFactory.cs" />
@@ -212,6 +235,7 @@
     <Compile Include="Factories\ManufacturerFactory.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\RestSharpFactory.cs" />
+    <Compile Include="Helpers\CompareDeclination.cs" />
     <Compile Include="Helpers\CompareHelper.cs" />
     <Compile Include="Helpers\LanguageHelper.cs" />
     <Compile Include="Lib\Functions.cs" />
@@ -224,7 +248,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
